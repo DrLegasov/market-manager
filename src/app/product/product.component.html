@@ -1,0 +1,22 @@
+
+  <td>{{index}}</td>
+  <td>{{productName}}</td>
+  <td>{{productStatus}}</td>
+  <td>
+    <button *ngIf="productStatus === 'Non Disponible'"
+    type="button"
+    class="btn btn-outline-dark mx-auto-4"
+    (click)="onSwitchStatus(index, 'Disponible')">Basculer en Disponible
+    </button>
+    <button *ngIf="productStatus === 'Disponible'"
+    type="button"
+    class="btn btn-outline-dark mx-auto-4"
+    (click)="onSwitchStatus(index, 'Non Disponible')">Basculer en Non Disponible
+    </button>
+    <hr>
+    <button
+  [routerLink]="['/market', index+1]"
+  class="btn btn-warning mr-5">
+  DÉTAILS
+  </button>
+  </td>

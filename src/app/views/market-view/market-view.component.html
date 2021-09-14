@@ -1,0 +1,27 @@
+<div class="text-center my-3">
+  <button class="btn btn-dark
+  mt-5 text-uppercase mx-2"
+  (click)="allAvailable()">Disponible</button>
+  <button class="btn btn-dark
+  mt-5 text-uppercase mx-2"
+  (click)="allUnAvailable()">Non Disponible</button>
+</div>
+<div class="container mx-auto my-auto">
+<table class="table mt-4">
+  <thead class="table-dark">
+    <tr class="mx-2">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr app-product *ngFor="let product of products, let i = index"
+    [productName]= "product.name"
+    [productStatus]= "product.status"
+    [index]="i">
+    </tr>
+  </tbody>
+</table>
+</div>

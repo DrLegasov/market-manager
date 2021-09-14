@@ -1,0 +1,39 @@
+<div class="row mt-5">
+
+  <div class="col-6 card shadox p-3 mx-auto">
+
+    <h3 class="text-center">CONNEXION</h3>
+    <div
+      *ngIf="errMsg"
+      class="alerte alert-danger text-center my-2">
+      {{errMsg}}
+    </div>
+    <form #authForm="ngForm" (ngSubmit)="onSubmitAuthForm()">
+      <div class="mb-3">
+        <label for="email">Email</label>
+        <input
+        id="email"
+        type="email"
+        name="email"
+        class="form-control"
+        placeholder="Email"
+        required
+        [(ngModel)]="email">
+      </div>
+      <div class="mb-3">
+        <label for="password">Mot de Passe</label>
+        <input
+        id="password"
+        type="password"
+        name="password"
+        class="form-control"
+        placeholder="Mot de Passe"
+        required
+        [(ngModel)]="password">
+      </div>
+      <div class="row mx-auto col-4">
+        <button type="submit" class="btn btn-outline-success" [disabled]="authForm.invalid">ME CONNECTER</button></div>
+    </form>
+  </div>
+
+</div>
