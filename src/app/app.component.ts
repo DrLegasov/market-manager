@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'market-manager';
+
+
+  constructor() {
+
+  }
+  ngOnInit(): void {
+
+  }
+
 }
+
