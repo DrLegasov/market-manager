@@ -21,7 +21,7 @@ import { ErrorViewComponent } from './views/error-view/error-view.component';
     AuthViewComponent,
     HeaderComponent,
     SingleProductViewComponent,
-    ErrorViewComponent
+    ErrorViewComponent,
 
   ],
   imports: [
