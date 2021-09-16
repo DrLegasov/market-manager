@@ -21,8 +21,10 @@ export class EditProductViewComponent implements OnInit {
   }
 
   askToEditProduct(editedProduct: Product) {
+    console.log(this.product);
+
     this.marketService.editProduct(editedProduct).then(() => {
-      this.router.navigate(['/product', editedProduct.id])
+      this.router.navigate(['/market', editedProduct.id])
     })
   }
 
