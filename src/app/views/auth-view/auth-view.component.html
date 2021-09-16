@@ -17,9 +17,14 @@
         name="email"
         class="form-control"
         placeholder="Email"
+        #emailInput="ngModel"
         required
+        email
         [(ngModel)]="email">
       </div>
+      <app-errors-form [control]="emailInput"
+        controlLabel="Email">
+      </app-errors-form>
       <div class="mb-3">
         <label for="password">Mot de Passe</label>
         <input
@@ -28,9 +33,13 @@
         name="password"
         class="form-control"
         placeholder="Mot de Passe"
+        #passwordInput="ngModel"
         required
         [(ngModel)]="password">
       </div>
+      <app-errors-form [control]="passwordInput"
+        controlLabel="Mot de passe">
+      </app-errors-form>
       <div class="row mx-auto col-4">
         <button type="submit" class="btn btn-outline-success" [disabled]="authForm.invalid">ME CONNECTER</button></div>
     </form>

@@ -1,6 +1,18 @@
-<div class="container align-item-center">
+<div class="position-relative">
 
   <h2 class="text-center mt-4">Market Manager</h2>
-<button *ngIf="isConnected" class="btn btn-warning" (click)="onClickSignout()"> ME DÉCONNECTER</button>
+
+</div>
+<div class="position-absolute top-0 end-0 mt-2">
+  <button
+  *ngIf="isConnected && !isAddPage"
+  class="btn btn-outline-success me-2"
+  routerLink="/market/new"> AJOUTER</button>
+
+  <button
+  *ngIf="isConnected"
+  class="btn btn-warning me-2"
+  (click)="onClickSignout()"> ME DÉCONNECTER</button>
+
 
 </div>

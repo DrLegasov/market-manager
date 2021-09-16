@@ -1,0 +1,31 @@
+<div class="row col-6 card shadow mx-auto text-center mt-3">
+  <h3 class=" text-center mt-3">{{name}}</h3>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmitProductForm()" class="my-3" action="">
+    <div class="mb-3">
+      <label
+      for="name">Nom</label>
+      <input
+      id="name"
+      formControlName="name"
+      class="form-control"
+      placeholder="Nom"
+      [(ngModel)]="product.name">
+    </div>
+    <div class="mb-3">
+      <label
+      for="status">Status</label>
+      <select
+      id="status"
+      formControlName="status"
+      class="form-control"
+      [(ngModel)]="product.status">
+        <option value="Disponible">Disponible</option>
+        <option value="Non Disponible">Non Disponible</option>
+      </select>
+    </div>
+    <hr>
+    <button type="submit" class="d-grid col-4 btn btn-dark mx-auto" [disabled]="productForm.invalid">{{submitLabel}}</button>
+  </form>
+  <a routerLink="/home" class="text-decoration mb-2 text-center text-dark"> RETOUR</a>
+</div>

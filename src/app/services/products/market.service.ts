@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-import { Product } from '../../Models/product.model';
+import {BehaviorSubject } from 'rxjs';
+import {Product } from '../../Models/product.model';
 
 @Injectable({providedIn: 'root'})
 
@@ -27,6 +27,52 @@ export class MarketService {
     this.products = new BehaviorSubject<Array<Product>>(productsToPush);
 
   }
+  getProductById(productId: number): Promise<Product>{
+    return new Promise((resolve, reject) => {
+      const products = this.products.getValue();
+
+      for(let product of products) {
+        if(product.id === productId){
+
+          resolve(product);
+          break;
+        }
+      }
+
+    });
+  }
+  addProduct(productToAdd: Product): Promise<void> {
+
+    return new Promise<void>(
+      (resolve, reject) => {
+
+      setTimeout(() => {
+
+        const products = this.products.getValue();
+        products.push(productToAdd);
+        this.products.next(products);
+        resolve();
+      }, 500);
+
+    });
+  }
+  editProduct(editedProduct: Product): Promise<void> {
+    return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const products = this.products.getValue();
+
+      for (let [index , product] of products.entries()) {
+        if (product.id === editedProduct.id) {
+          products[index] = editedProduct;
+          this.products.next(products);
+          resolve();
+          break;
+        }
+      }
+    }, 500);
+  });
+
+  }
   switchAllProductsStatus(newStatus: string) {
 
     const productsToEdit = this.products.getValue();
@@ -49,18 +95,17 @@ export class MarketService {
           }
       }
   }
-  getProductById(productId: number): Promise<Product>{
-  return new Promise((resolve, reject) => {
+  deleteProduct(productIdToDelete: number) {
     const products = this.products.getValue();
 
-    for(let product of products) {
-      if(product.id === productId){
-
-        resolve(product);
-        break;
+      for (let [index , product] of products.entries()) {
+        if (product.id === productIdToDelete) {
+          products.splice(index, 1);
+          this.products.next(products);
+          break;
+        }
       }
-    }
+  }
 
-  });
-}}
+}
 

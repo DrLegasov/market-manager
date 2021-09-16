@@ -6,22 +6,24 @@
   mt-5 text-uppercase mx-2"
   (click)="allUnAvailable()">Non Disponible</button>
 </div>
-<div class="container mx-auto my-auto">
-<table class="table mt-4">
-  <thead class="table-dark">
-    <tr class="mx-2">
-      <th>ID</th>
-      <th>Name</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr app-product *ngFor="let product of products, let i = index"
-    [productName]= "product.name"
-    [productStatus]= "product.status"
-    [index]="i">
-    </tr>
-  </tbody>
-</table>
-</div>
+<div id="bloc" class="container">
+  <table class="table mt-5">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr app-product
+      *ngFor="let product of products"
+      [id]="product.id"
+      [name]="product.name"
+      [status]="product.status">
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
