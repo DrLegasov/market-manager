@@ -87,7 +87,7 @@ export class MarketService {
     const productsToEdit = this.products.getValue();
 
       for (let product of productsToEdit) {
-          if (product.id === productId +1) {
+          if (product.id === productId) {
             product.status = newStatus;
             this.products.next(productsToEdit);
             break;
